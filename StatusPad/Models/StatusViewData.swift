@@ -15,7 +15,6 @@ enum DisplayStyle {
 }
 
 struct StatusViewData {
-    var title: String
-    var details: String
+    var title: String    
     var style: DisplayStyle
 }

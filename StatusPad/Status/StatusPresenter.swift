@@ -58,15 +58,12 @@ class StatusPresenter: BasePresenter {
     }
     
     @objc private func updateDisplayData() {
-        guard let event = eventService.currentEvent() else {
-            viewData = StatusViewData(title: DefaultStatus.available.rawValue, details: "", style: .free)
+        guard let event = eventService.getCurrentEvent() else {
+            viewData = StatusViewData(title: DefaultStatus.available.rawValue, style: .free)
             return
         }
-        
         var title: String = event.title
-        var details: String = event.details
-        if(!event.displayInfo) {
-            details = ""
+        if(!event.displayTitle) {
             switch(event.type) {
                 case .call:
                     title = DefaultStatus.onACall.rawValue
@@ -76,7 +73,7 @@ class StatusPresenter: BasePresenter {
                     title = DefaultStatus.busy.rawValue
             }
         }
-        viewData = StatusViewData(title: title, details: details, style: .busy)
+        viewData = StatusViewData(title: title, style: .busy)
     }
     
 }

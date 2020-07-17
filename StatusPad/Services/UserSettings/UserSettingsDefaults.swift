@@ -36,5 +36,4 @@ final class UserSettingsDefaults: UserSettings {
         get { UserDefaults.standard.bool(forKey: USER_SETTINGS.HAS_LAUNCHED_APP.rawValue) }
         set { UserDefaults.standard.set(newValue, forKey: USER_SETTINGS.HAS_LAUNCHED_APP.rawValue) }
     }
-    
 }

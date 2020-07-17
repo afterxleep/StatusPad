@@ -15,11 +15,12 @@ enum EventType: String, Codable {
 }
 
 struct Event: Codable {
-    var title: String
-    var details: String
+    var title: String    
     var startDate: Date
     var endDate: Date
     var allDay: Bool = false    
     var type: EventType = .other
-    var displayInfo: Bool = false
+    var displayTitle: Bool = false
+    var location: String?
+    var url: String?
 }

@@ -54,8 +54,7 @@ class StatusViewController: UIViewController, StatusView, Storyboardeable {
                 labelColor = UIColor.systemBlue
         }
         statusLbl.text = data?.title.uppercased()        
-        statusLbl.backgroundColor = labelColor
-        detailsLbl.text = data?.details
+        statusLbl.backgroundColor = labelColor        
     }
 
     
