@@ -16,8 +16,7 @@ class StatusViewController: UIViewController, StatusView, Storyboardeable {
     private static let timerInterval = 60.0
     private var timer: Timer?
     
-    @IBOutlet weak var statusLbl: UILabel!
-    @IBOutlet weak var detailsLbl: UILabel!
+    @IBOutlet weak var statusLbl: UILabel!    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +28,14 @@ class StatusViewController: UIViewController, StatusView, Storyboardeable {
     }
     
     private func setupUI() {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        statusLbl.numberOfLines = 8
     }
     
-    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
     private func setTimer() {
         self.timer = Timer.scheduledTimer(timeInterval: Self.timerInterval,
                                           target: self,
@@ -40,7 +43,6 @@ class StatusViewController: UIViewController, StatusView, Storyboardeable {
                                           userInfo: nil,
                                           repeats: true)
     }
-    
     
     @objc private func displayData() {
         let data = presenter?.viewData
@@ -54,7 +56,7 @@ class StatusViewController: UIViewController, StatusView, Storyboardeable {
                 labelColor = UIColor.systemBlue
         }
         statusLbl.text = data?.title.uppercased()        
-        statusLbl.backgroundColor = labelColor        
+        view.backgroundColor = labelColor        
     }
 
     
