@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Status View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="StatusViewController" id="BYZ-38-t0r" customClass="StatusViewController" customModule="StatusPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="nRz-6I-ofe">
+                                <rect key="frame" x="0.0" y="290" width="768" height="237.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="ON A CALL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ER-wu-nnU">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="119.5"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="100"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="I'll be free at 2.30pm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skn-Cq-9aY">
+                                        <rect key="frame" x="0.0" y="189.5" width="768" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="skn-Cq-9aY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4ER-wu-nnU" secondAttribute="bottom" id="4nz-2F-9Yk"/>
+                                    <constraint firstItem="4ER-wu-nnU" firstAttribute="leading" secondItem="nRz-6I-ofe" secondAttribute="leading" id="7ou-7f-oUi"/>
+                                    <constraint firstAttribute="trailing" secondItem="skn-Cq-9aY" secondAttribute="trailing" id="ARb-wL-cGw"/>
+                                    <constraint firstItem="skn-Cq-9aY" firstAttribute="leading" secondItem="nRz-6I-ofe" secondAttribute="leading" id="BGO-uP-nc6"/>
+                                    <constraint firstItem="4ER-wu-nnU" firstAttribute="top" secondItem="nRz-6I-ofe" secondAttribute="top" id="C1J-3I-yuB"/>
+                                    <constraint firstAttribute="bottom" secondItem="skn-Cq-9aY" secondAttribute="bottom" id="jMH-6e-F99"/>
+                                    <constraint firstAttribute="trailing" secondItem="4ER-wu-nnU" secondAttribute="trailing" id="tL3-GW-cHE"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4y-Ew-GLi">
+                                <rect key="frame" x="652" y="974" width="96" height="30"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a4y-Ew-GLi" secondAttribute="bottom" constant="20" id="Qwf-BZ-kew"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nRz-6I-ofe" secondAttribute="bottom" priority="900" constant="590.5" id="SgW-Iu-0GL"/>
+                            <constraint firstItem="nRz-6I-ofe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="290" id="f9h-2u-B3T"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a4y-Ew-GLi" secondAttribute="trailing" constant="20" id="hsf-Yx-rW9"/>
+                            <constraint firstItem="nRz-6I-ofe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qnb-JI-wCh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nRz-6I-ofe" secondAttribute="trailing" id="tmc-0q-n40"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailsLbl" destination="skn-Cq-9aY" id="izG-qv-G8f"/>
+                        <outlet property="statusLbl" destination="4ER-wu-nnU" id="Quh-61-w7P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="204.6875" y="130.6640625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
