@@ -46,16 +46,18 @@ class StatusViewController: UIViewController, StatusView, Storyboardeable {
     
     @objc private func displayData() {
         
+        let data = presenter.getDisplayData()
         UIScreen.main.wantsSoftwareDimming = true
         UIScreen.main.brightness = CONSTANTS.CONFIG.DEFAULT_BRIGHTNESS
-        if (presenter.shouldDimScreen) {
+        
+        if (presenter.shouldDimScreen && data.style == .free) {
             statusLbl.text = ""
             UIScreen.main.brightness = 0.0
             view.backgroundColor = UIColor.black
             return
         }
         
-        let data = presenter.getDisplayData()
+        
         var bgColor: UIColor
         switch(data.style) {
             case .busy:
