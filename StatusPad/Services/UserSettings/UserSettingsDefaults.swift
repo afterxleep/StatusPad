@@ -13,7 +13,12 @@ final class UserSettingsDefaults: UserSettings {
     init() {
         let c1 = Calendar(title: "StatusPad", displayTitles: true)
         let c2 = Calendar(title: "FastMail", displayTitles: false)
-        self.activeCalendars = [c1, c2]
+        self.activeCalendars = [c1, c2]        
+        self.dimScreenWhenInactive = false
+    }
+    
+    private func sync() {
+        UserDefaults.standard.synchronize()
     }
     
     var activeCalendars: [Calendar] {
@@ -29,11 +34,23 @@ final class UserSettingsDefaults: UserSettings {
             let encoder = JSONEncoder()
             let data = try? encoder.encode(newValue)
             UserDefaults.standard.set(data, forKey: USER_SETTINGS.CALENDARS.rawValue)
+            sync()
+        }
+    }
+    
+    var dimScreenWhenInactive: Bool {
+        get { UserDefaults.standard.bool(forKey: USER_SETTINGS.DIM_SCREEN_WHEN_INACTIVE.rawValue) }
+        set {
+            UserDefaults.standard.set(newValue, forKey: USER_SETTINGS.DIM_SCREEN_WHEN_INACTIVE.rawValue)
+            sync()
         }
     }
     
     var hasLaunchedApp: Bool {
         get { UserDefaults.standard.bool(forKey: USER_SETTINGS.HAS_LAUNCHED_APP.rawValue) }
-        set { UserDefaults.standard.set(newValue, forKey: USER_SETTINGS.HAS_LAUNCHED_APP.rawValue) }
+        set {
+            UserDefaults.standard.set(newValue, forKey: USER_SETTINGS.HAS_LAUNCHED_APP.rawValue)
+            sync()
+        }
     }
 }

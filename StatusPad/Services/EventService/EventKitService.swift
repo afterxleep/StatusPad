@@ -50,6 +50,17 @@ struct EventKitService: EventService {
                 EventAvailabilityStrings.available.rawValue
     }
     
+    private func eventAvailability(event: EKEvent) -> EventAvailability {
+        switch (event.availability) {
+            case .busy, .unavailable, .notSupported:
+                return .busy
+            case .tentative, .free:
+                return .free
+            @unknown default:
+                return .free
+        }
+    }
+    
     private func availableCalendars() -> [EKCalendar] {
         let calendars = eventStore.calendars(for: .event)
         return calendars
@@ -63,13 +74,14 @@ struct EventKitService: EventService {
         let events = eventStore.events(matching: predicate)
         for event in events {
             // Only return Confirmed and blocked slots
-            if([0,1].contains(event.status.rawValue) && event.availability.rawValue == 0) {
+            if([0,1].contains(event.status.rawValue) && [0,1,3].contains(event.availability.rawValue)) {
                 let title = ((displayTitles) ? event.title : eventIncognitoTitle(event: event)) ?? ""
                 let e = Event(title: title,
                               startDate: event.startDate,
                               endDate: event.endDate,
                               type: ((event.location) != nil) ? .meeting : (event.url != nil) ? .call : .other,
-                              displayTitle: displayTitles)
+                              displayTitle: displayTitles,
+                              availalibility: eventAvailability(event: event))
                 nextEvents.append(e)
             }
         }

@@ -12,7 +12,7 @@ protocol StatusViewControllerDelegate: class {}
 
 class StatusViewController: UIViewController, StatusView, Storyboardeable {
     
-    var presenter: StatusPresenter?
+    var presenter: StatusPresenter!
     private static let timerInterval = 60.0
     private var timer: Timer?
     
@@ -20,7 +20,7 @@ class StatusViewController: UIViewController, StatusView, Storyboardeable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.attachView(view: self)
+        presenter.attachView(view: self)
         setupUI()
         disableSleepTimer()
         displayData()
@@ -45,18 +45,26 @@ class StatusViewController: UIViewController, StatusView, Storyboardeable {
     }
     
     @objc private func displayData() {
-        let data = presenter?.viewData
-        var labelColor: UIColor
-        switch(data?.style) {
-            case .busy:
-                labelColor = UIColor.systemPink
-            case .free:
-                labelColor = UIColor.systemGreen
-            case .none:
-                labelColor = UIColor.systemBlue
+        
+        UIScreen.main.wantsSoftwareDimming = true
+        UIScreen.main.brightness = CONSTANTS.CONFIG.DEFAULT_BRIGHTNESS
+        if (presenter.shouldDimScreen) {
+            statusLbl.text = ""
+            UIScreen.main.brightness = 0.0
+            view.backgroundColor = UIColor.black
+            return
         }
-        statusLbl.text = data?.title.uppercased()        
-        view.backgroundColor = labelColor        
+        
+        let data = presenter.getDisplayData()
+        var bgColor: UIColor
+        switch(data.style) {
+            case .busy:
+                bgColor = UIColor.systemPink
+            case .free:
+                bgColor = UIColor.systemGreen            
+        }
+        statusLbl.text = data.title.uppercased()
+        view.backgroundColor = bgColor
     }
 
     

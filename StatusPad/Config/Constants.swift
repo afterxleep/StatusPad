@@ -7,10 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
-enum CONSTANTS {
+struct CONSTANTS {
     
     enum STORYBOARDS: String {
         case STATUS_STORYBOARD = "Main"
-    }    
+    }
+    
+    struct CONFIG {
+        static let DEFAULT_BRIGHTNESS: CGFloat = 0.7
+    }
 }

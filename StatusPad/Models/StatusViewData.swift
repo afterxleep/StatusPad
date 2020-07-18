@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-enum DisplayStyle {
+enum DisplayStyle: Int {
     case busy
     case free
 }
 
 struct StatusViewData {
     var title: String    
-    var style: DisplayStyle
+    var style: DisplayStyle    
 }

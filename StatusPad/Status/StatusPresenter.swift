@@ -15,7 +15,7 @@ class StatusPresenter: BasePresenter {
     private var statusView: StatusView?
     private static let timerInterval = 60.0
     private var eventService: EventService
-    private let userSettings: UserSettings
+    private var userSettings: UserSettings
     private var timer: Timer?
     private var events: [Event] = []
     
@@ -27,8 +27,10 @@ class StatusPresenter: BasePresenter {
     }
         
     var displayEvents: (current: Event?, next: Event?)
-    var nextAvailableTime: Date?
-    var viewData: StatusViewData?
+    
+    var shouldDimScreen: Bool {
+        get { return userSettings.dimScreenWhenInactive }
+    }
     
     internal func attachView(view: StatusView) {
         statusView = view
@@ -39,29 +41,19 @@ class StatusPresenter: BasePresenter {
     }
     
     internal func destroy() {}
-    
 
     init(eventService: EventService, userSettings: UserSettings) {
         self.userSettings = userSettings
         self.eventService = eventService
         self.eventService.limitToCalendars = userSettings.activeCalendars
-        updateDisplayData()
-        setTimer()
+        self.userSettings.hasLaunchedApp = true
     }
     
-    private func setTimer() {
-        self.timer = Timer.scheduledTimer(timeInterval: Self.timerInterval,
-                                          target: self,
-                                          selector: #selector(updateDisplayData),
-                                          userInfo: nil,
-                                          repeats: true)
-    }
-    
-    @objc private func updateDisplayData() {
+    func getDisplayData() -> StatusViewData {
         guard let event = eventService.getCurrentEvent() else {
-            viewData = StatusViewData(title: DefaultStatus.available.rawValue, style: .free)
-            return
+            return StatusViewData(title:  DefaultStatus.available.rawValue, style: .free)
         }
+        
         var title: String = event.title
         if(!event.displayTitle) {
             switch(event.type) {
@@ -73,7 +65,7 @@ class StatusPresenter: BasePresenter {
                     title = DefaultStatus.busy.rawValue
             }
         }
-        viewData = StatusViewData(title: title, style: .busy)
+        return StatusViewData(title: title,
+                              style: (event.availalibility == .free) ? .free : .busy)
     }
-    
 }

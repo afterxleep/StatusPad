@@ -25,9 +25,9 @@ class StatusCoordinator: Coordinator {
     }
     
     internal func start() {
-        let vc = StatusViewController.instatiate(fromStoryboard: storyBoard)
         presenter = StatusPresenter(eventService: EventKitService(),
                                     userSettings: UserSettingsDefaults())
+        let vc = StatusViewController.instatiate(fromStoryboard: storyBoard)
         vc.presenter = presenter
         navigationController.pushViewController(vc, animated: false)
     }

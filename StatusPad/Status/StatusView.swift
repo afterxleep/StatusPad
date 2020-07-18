@@ -9,5 +9,5 @@
 import Foundation
 
 protocol StatusView {
-    var presenter: StatusPresenter? { get }
+    var presenter: StatusPresenter! { get set }
 }

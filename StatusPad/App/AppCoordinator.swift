@@ -30,10 +30,21 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
+        let userSettings: UserSettings = UserSettingsDefaults()
+        if(userSettings.hasLaunchedApp) {
+            statusView()
+        }
+    }
+    
+    func statusView() {
         let statusCoordinator = StatusCoordinator(with: navigationController)
         statusCoordinator.delegate = self
         addChild(coordinator: statusCoordinator)
         statusCoordinator.start()
+    }
+    
+    func onboardView() {
+        
     }
 }
 

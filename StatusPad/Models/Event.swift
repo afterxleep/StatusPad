@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum EventAvailability: Int, Codable {
+    case busy = 0
+    case free = 1
+}
+
 enum EventType: String, Codable {
     case meeting
     case call
@@ -21,6 +26,8 @@ struct Event: Codable {
     var allDay: Bool = false    
     var type: EventType = .other
     var displayTitle: Bool = false
+    var availalibility: EventAvailability = .free
     var location: String?
     var url: String?
+    
 }

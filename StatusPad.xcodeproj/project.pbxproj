@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,7 +29,6 @@
 		D6DBB4B724BF8C790061DB36 /* UserSettingsDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB4B524BF8C790061DB36 /* UserSettingsDefaults.swift */; };
 		D6DBB4B824BF8C790061DB36 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB4B624BF8C790061DB36 /* UserSettings.swift */; };
 		D6DBB4BA24BF8CA60061DB36 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB4B924BF8CA60061DB36 /* Calendar.swift */; };
-		D6DBB4BD24BF8EDE0061DB36 /* UserSettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB4BC24BF8EDE0061DB36 /* UserSettingsConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +77,6 @@
 		D6DBB4B524BF8C790061DB36 /* UserSettingsDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsDefaults.swift; sourceTree = "<group>"; };
 		D6DBB4B624BF8C790061DB36 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		D6DBB4B924BF8CA60061DB36 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
-		D6DBB4BC24BF8EDE0061DB36 /* UserSettingsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +104,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4100841493DD0B744271D928 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D60671B524BE65FE00FF22DE = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +118,7 @@
 				D60671D724BE660000FF22DE /* StabletTests */,
 				D60671E224BE660000FF22DE /* StabletUITests */,
 				D60671BF24BE65FE00FF22DE /* Products */,
+				4100841493DD0B744271D928 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,8 +140,8 @@
 				D6DBB4BB24BF8ED10061DB36 /* Config */,
 				D606720424BF5A7F00FF22DE /* Services */,
 				D60671FC24BE6BB800FF22DE /* Models */,
-				D60671F724BE6AD200FF22DE /* Status */,
 				D60671F324BE6A3700FF22DE /* App */,
+				D60671F724BE6AD200FF22DE /* Status */,
 				D60671C724BE65FE00FF22DE /* Main.storyboard */,
 				D60671CA24BE660000FF22DE /* Assets.xcassets */,
 				D60671CC24BE660000FF22DE /* LaunchScreen.storyboard */,
@@ -240,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				D6585A1224C10C65004D7B99 /* Constants.swift */,
-				D6DBB4BC24BF8EDE0061DB36 /* UserSettingsConstants.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -387,7 +392,6 @@
 				D6585A0D24C108BB004D7B99 /* AppCoordinator.swift in Sources */,
 				D60671F224BE686300FF22DE /* EventKitService.swift in Sources */,
 				D6AB657124C119A50087C58C /* StatusViewData.swift in Sources */,
-				D6DBB4BD24BF8EDE0061DB36 /* UserSettingsConstants.swift in Sources */,
 				D60671FB24BE6B2900FF22DE /* EventService.swift in Sources */,
 				D60671FE24BE6BC200FF22DE /* Event.swift in Sources */,
 				D606720124BF4DAC00FF22DE /* BasePresenter.swift in Sources */,
