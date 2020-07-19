@@ -17,7 +17,7 @@ class StatusCoordinator: Coordinator {
     internal var navigationController: UINavigationController
     internal var childCoordinators: [Coordinator]
     internal var presenter: StatusPresenter?
-    weak var delegate: StatusCoordinatorDelegate?
+    var delegate: StatusCoordinatorDelegate?
     
     init(with navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -29,8 +29,22 @@ class StatusCoordinator: Coordinator {
                                     userSettings: UserSettingsDefaults())
         let vc = StatusViewController.instatiate(fromStoryboard: storyBoard)
         vc.presenter = presenter
+        vc.delegate = self
         navigationController.pushViewController(vc, animated: false)
     }
+    
+    func settingsFrom(anchorButton: UIButton) {
+        let settingsCoordinator = SettingsCoordinator(with: navigationController, anchorButton: anchorButton)
+        addChild(coordinator: settingsCoordinator)        
+        settingsCoordinator.start()
+    }
+    
+    
 }
 
-extension StatusCoordinator: StatusViewControllerDelegate {}
+extension StatusCoordinator: StatusViewControllerDelegate {
+    
+    func didTapSettings(anchorButton: UIButton) {
+        settingsFrom(anchorButton: anchorButton)
+    }
+}

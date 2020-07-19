@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6000F8B24C4B34F00F8A28B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6000F8A24C4B34F00F8A28B /* SettingsViewController.swift */; };
+		D6000F8D24C4B36300F8A28B /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6000F8C24C4B36300F8A28B /* SettingsPresenter.swift */; };
+		D6000F8F24C4B36C00F8A28B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6000F8E24C4B36C00F8A28B /* SettingsView.swift */; };
+		D6000F9124C4B55400F8A28B /* StatusCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6000F9024C4B55400F8A28B /* StatusCoordinator.swift */; };
+		D6000F9324C4B9C700F8A28B /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6000F9224C4B9C700F8A28B /* SettingsCoordinator.swift */; };
 		D60671C224BE65FE00FF22DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60671C124BE65FE00FF22DE /* AppDelegate.swift */; };
 		D60671C624BE65FE00FF22DE /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60671C524BE65FE00FF22DE /* StatusViewController.swift */; };
 		D60671C924BE65FE00FF22DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D60671C724BE65FE00FF22DE /* Main.storyboard */; };
@@ -22,7 +27,6 @@
 		D606720324BF4E0100FF22DE /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D606720224BF4E0100FF22DE /* StatusView.swift */; };
 		D6585A0924C10718004D7B99 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6585A0824C10718004D7B99 /* Coordinator.swift */; };
 		D6585A0D24C108BB004D7B99 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6585A0C24C108BB004D7B99 /* AppCoordinator.swift */; };
-		D6585A0F24C10A5D004D7B99 /* StatusCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6585A0E24C10A5D004D7B99 /* StatusCoordinator.swift */; };
 		D6585A1124C10BEC004D7B99 /* StoryBoardeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6585A1024C10BEC004D7B99 /* StoryBoardeable.swift */; };
 		D6585A1324C10C65004D7B99 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6585A1224C10C65004D7B99 /* Constants.swift */; };
 		D6AB657124C119A50087C58C /* StatusViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AB657024C119A50087C58C /* StatusViewData.swift */; };
@@ -49,6 +53,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D6000F8A24C4B34F00F8A28B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D6000F8C24C4B36300F8A28B /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		D6000F8E24C4B36C00F8A28B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D6000F9024C4B55400F8A28B /* StatusCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCoordinator.swift; sourceTree = "<group>"; };
+		D6000F9224C4B9C700F8A28B /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		D60671BE24BE65FE00FF22DE /* StatusPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatusPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60671C124BE65FE00FF22DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D60671C524BE65FE00FF22DE /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +79,6 @@
 		D606720224BF4E0100FF22DE /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		D6585A0824C10718004D7B99 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D6585A0C24C108BB004D7B99 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		D6585A0E24C10A5D004D7B99 /* StatusCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCoordinator.swift; sourceTree = "<group>"; };
 		D6585A1024C10BEC004D7B99 /* StoryBoardeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardeable.swift; sourceTree = "<group>"; };
 		D6585A1224C10C65004D7B99 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D6AB657024C119A50087C58C /* StatusViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewData.swift; sourceTree = "<group>"; };
@@ -111,6 +119,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D6000F8924C4B33700F8A28B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D6000F9224C4B9C700F8A28B /* SettingsCoordinator.swift */,
+				D6000F8C24C4B36300F8A28B /* SettingsPresenter.swift */,
+				D6000F8E24C4B36C00F8A28B /* SettingsView.swift */,
+				D6000F8A24C4B34F00F8A28B /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		D60671B524BE65FE00FF22DE = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +160,7 @@
 				D606720424BF5A7F00FF22DE /* Services */,
 				D60671FC24BE6BB800FF22DE /* Models */,
 				D60671F324BE6A3700FF22DE /* App */,
+				D6000F8924C4B33700F8A28B /* Settings */,
 				D60671F724BE6AD200FF22DE /* Status */,
 				D60671C724BE65FE00FF22DE /* Main.storyboard */,
 				D60671CA24BE660000FF22DE /* Assets.xcassets */,
@@ -189,7 +209,7 @@
 		D60671F724BE6AD200FF22DE /* Status */ = {
 			isa = PBXGroup;
 			children = (
-				D6585A0E24C10A5D004D7B99 /* StatusCoordinator.swift */,
+				D6000F9024C4B55400F8A28B /* StatusCoordinator.swift */,
 				D60671F824BE6AE000FF22DE /* StatusPresenter.swift */,
 				D606720224BF4E0100FF22DE /* StatusView.swift */,
 				D60671C524BE65FE00FF22DE /* StatusViewController.swift */,
@@ -383,21 +403,25 @@
 			files = (
 				D6DBB4BA24BF8CA60061DB36 /* Calendar.swift in Sources */,
 				D6585A1324C10C65004D7B99 /* Constants.swift in Sources */,
+				D6000F9124C4B55400F8A28B /* StatusCoordinator.swift in Sources */,
 				D60671F924BE6AE000FF22DE /* StatusPresenter.swift in Sources */,
+				D6000F9324C4B9C700F8A28B /* SettingsCoordinator.swift in Sources */,
 				D6585A1124C10BEC004D7B99 /* StoryBoardeable.swift in Sources */,
 				D6585A0924C10718004D7B99 /* Coordinator.swift in Sources */,
+				D6000F8F24C4B36C00F8A28B /* SettingsView.swift in Sources */,
 				D60671C624BE65FE00FF22DE /* StatusViewController.swift in Sources */,
 				D606720324BF4E0100FF22DE /* StatusView.swift in Sources */,
 				D6DBB4B824BF8C790061DB36 /* UserSettings.swift in Sources */,
+				D6000F8D24C4B36300F8A28B /* SettingsPresenter.swift in Sources */,
 				D6585A0D24C108BB004D7B99 /* AppCoordinator.swift in Sources */,
 				D60671F224BE686300FF22DE /* EventKitService.swift in Sources */,
 				D6AB657124C119A50087C58C /* StatusViewData.swift in Sources */,
 				D60671FB24BE6B2900FF22DE /* EventService.swift in Sources */,
 				D60671FE24BE6BC200FF22DE /* Event.swift in Sources */,
 				D606720124BF4DAC00FF22DE /* BasePresenter.swift in Sources */,
-				D6585A0F24C10A5D004D7B99 /* StatusCoordinator.swift in Sources */,
 				D6DBB4B724BF8C790061DB36 /* UserSettingsDefaults.swift in Sources */,
 				D60671C224BE65FE00FF22DE /* AppDelegate.swift in Sources */,
+				D6000F8B24C4B34F00F8A28B /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +526,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -556,7 +580,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -573,7 +597,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JM9222EF99;
 				INFOPLIST_FILE = StatusPad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -592,7 +616,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JM9222EF99;
 				INFOPLIST_FILE = StatusPad/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

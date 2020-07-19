@@ -8,23 +8,39 @@
 
 import UIKit
 
-protocol StatusViewControllerDelegate: class {}
+protocol StatusViewControllerDelegate: class {
+    func didTapSettings(anchorButton: UIButton)
+}
 
 class StatusViewController: UIViewController, StatusView, Storyboardeable {
     
     var presenter: StatusPresenter!
     private static let timerInterval = 60.0
-    private var timer: Timer?
+    private var dataTimer: Timer?
+    private var screenTimer: Timer?
+    var delegate: StatusViewControllerDelegate?
     
     @IBOutlet weak var statusLbl: UILabel!    
+    @IBOutlet weak var settingsBtn: UIButton!
     
+    //MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIScreen.main.wantsSoftwareDimming = true
         presenter.attachView(view: self)
         setupUI()
         disableSleepTimer()
         displayData()
-        setTimer()
+        setDataTimer()
+    }
+    
+    //MARK: IBActions
+    @IBAction func didTapScreen(_ sender: Any) {
+        enableScreen()
+    }
+
+    @IBAction func didTapSettingsBtn(_ sender: Any) {
+        delegate?.didTapSettings(anchorButton: settingsBtn)
     }
     
     private func setupUI() {
@@ -36,40 +52,44 @@ class StatusViewController: UIViewController, StatusView, Storyboardeable {
         return true
     }
 
-    private func setTimer() {
-        self.timer = Timer.scheduledTimer(timeInterval: Self.timerInterval,
+    private func setDataTimer() {
+        self.dataTimer = Timer.scheduledTimer(timeInterval: Self.timerInterval,
                                           target: self,
                                           selector: #selector(displayData),
                                           userInfo: nil,
                                           repeats: true)
     }
     
-    @objc private func displayData() {
-        
-        let data = presenter.getDisplayData()
-        UIScreen.main.wantsSoftwareDimming = true
+    func disableScreen() {
+        UIScreen.main.brightness = 0.0
+    }
+    
+    func enableScreen() {
         UIScreen.main.brightness = CONSTANTS.CONFIG.DEFAULT_BRIGHTNESS
+    }
         
-        if (presenter.shouldDimScreen && data.style == .free) {
-            statusLbl.text = ""
-            UIScreen.main.brightness = 0.0
-            view.backgroundColor = UIColor.black
-            return
-        }
-        
-        
+    func presentData(data: StatusViewData) {
         var bgColor: UIColor
         switch(data.style) {
             case .busy:
                 bgColor = UIColor.systemPink
             case .free:
-                bgColor = UIColor.systemGreen            
+                bgColor = UIColor.systemGreen
         }
         statusLbl.text = data.title.uppercased()
         view.backgroundColor = bgColor
     }
-
     
+    @objc private func displayData() {
+        let data = presenter.getDisplayData()
+        presentData(data: data)
+        if (presenter.shouldDimScreen && data.style == .free) {
+            disableScreen()
+        } else {
+            enableScreen()
+        }
+    }
+
     private func disableSleepTimer() {
         UIApplication.shared.isIdleTimerDisabled = true
     }

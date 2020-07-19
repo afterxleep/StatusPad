@@ -11,8 +11,6 @@ import UIKit
 
 class AppCoordinator: Coordinator {
     
-    weak var delegate: StatusCoordinatorDelegate?
-    
     private var window: UIWindow
     internal var navigationController: UINavigationController
     internal var childCoordinators: [Coordinator]
@@ -32,11 +30,11 @@ class AppCoordinator: Coordinator {
     func start() {
         let userSettings: UserSettings = UserSettingsDefaults()
         if(userSettings.hasLaunchedApp) {
-            statusView()
+            status()
         }
     }
     
-    func statusView() {
+    func status() {
         let statusCoordinator = StatusCoordinator(with: navigationController)
         statusCoordinator.delegate = self
         addChild(coordinator: statusCoordinator)
