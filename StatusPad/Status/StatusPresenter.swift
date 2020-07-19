@@ -18,14 +18,7 @@ class StatusPresenter: BasePresenter {
     private var userSettings: UserSettings
     private var timer: Timer?
     private var events: [Event] = []
-    
-    enum DefaultStatus: String {
-        case available = "Available"
-        case onACall = "On a Call"
-        case inAMeeting = "In a Meeting"
-        case busy = "Busy"
-    }
-        
+            
     var displayEvents: (current: Event?, next: Event?)
     
     var shouldDimScreen: Bool {
@@ -51,18 +44,18 @@ class StatusPresenter: BasePresenter {
     
     func getDisplayData() -> StatusViewData {
         guard let event = eventService.getCurrentEvent() else {
-            return StatusViewData(title:  DefaultStatus.available.rawValue, style: .free)
+            return StatusViewData(title:  userSettings.defaultEventStatus[DefaultEventAvailabilityStrings.busy.rawValue] as! String, style: .free)
         }
         
         var title: String = event.title
         if(!event.displayTitle) {
             switch(event.type) {
                 case .call:
-                    title = DefaultStatus.onACall.rawValue
+                    title = userSettings.defaultEventStatus[DefaultEventAvailabilityStrings.onACall.rawValue] as! String
                 case .meeting:
-                    title = DefaultStatus.onACall.rawValue
+                    title = userSettings.defaultEventStatus[DefaultEventAvailabilityStrings.onAMeeting.rawValue] as! String
                 case .other:
-                    title = DefaultStatus.busy.rawValue
+                    title = userSettings.defaultEventStatus[DefaultEventAvailabilityStrings.busy.rawValue] as! String
             }
         }
         return StatusViewData(title: title,

@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+
 final class UserSettingsDefaults: UserSettings {
     
     init() {
@@ -50,6 +52,20 @@ final class UserSettingsDefaults: UserSettings {
         get { UserDefaults.standard.bool(forKey: USER_SETTINGS.HAS_LAUNCHED_APP.rawValue) }
         set {
             UserDefaults.standard.set(newValue, forKey: USER_SETTINGS.HAS_LAUNCHED_APP.rawValue)
+            sync()
+        }
+    }
+    
+    var defaultEventStatus: [String : Any] {
+        get { UserDefaults.standard.dictionary(forKey: USER_SETTINGS.DEFAULT_EVENT_STATUS.rawValue) ??
+            [
+                DefaultEventAvailabilityStrings.busy.rawValue : DefaultEventAvailabilityStrings.busy.rawValue.capitalized,
+                DefaultEventAvailabilityStrings.available.rawValue : DefaultEventAvailabilityStrings.available.rawValue.capitalized
+            ]
+            
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: USER_SETTINGS.DEFAULT_EVENT_STATUS.rawValue)
             sync()
         }
     }

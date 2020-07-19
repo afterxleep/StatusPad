@@ -17,6 +17,7 @@ class SettingsCoordinator: Coordinator {
     internal var navigationController: UINavigationController
     internal var childCoordinators: [Coordinator]
     internal var presenter: SettingsPresenter?
+    internal var settingsNavigationController: UINavigationController
     weak var delegate: SettingsCoordinatorDelegate?
     var anchorButton: UIButton
     
@@ -24,14 +25,16 @@ class SettingsCoordinator: Coordinator {
         self.navigationController = navigationController
         self.anchorButton = anchorButton
         self.childCoordinators = []
+        self.settingsNavigationController = UINavigationController()
     }
     
     internal func start() {
         let vc = SettingsViewController.instatiate(fromStoryboard: storyBoard)
-        vc.modalPresentationStyle = .popover
-        vc.popoverPresentationController?.sourceView = anchorButton
-        vc.popoverPresentationController?.sourceRect = anchorButton.bounds
-        navigationController.present(vc, animated: true, completion: nil)
+        settingsNavigationController = UINavigationController(rootViewController: vc)
+        settingsNavigationController.modalPresentationStyle = .popover
+        settingsNavigationController.popoverPresentationController?.sourceView = anchorButton
+        settingsNavigationController.popoverPresentationController?.sourceRect = anchorButton.bounds
+        navigationController.present(settingsNavigationController, animated: true, completion: nil)
     }
 
 }

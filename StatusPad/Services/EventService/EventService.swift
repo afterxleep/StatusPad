@@ -11,6 +11,6 @@ import Foundation
 protocol EventService {
     
     var limitToCalendars: [Calendar] { get set }
-    func getEvents() -> [Event]
+    var events: [Event] { get }
     func getCurrentEvent() -> Event?
 }

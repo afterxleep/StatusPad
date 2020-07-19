@@ -9,18 +9,28 @@
 import Foundation
 import EventKit
 
-struct EventKitService: EventService {
-    
-    enum EventAvailabilityStrings: String {
-        case busy = "Busy"
-        case available = "Available"
-    }
+class EventKitService: EventService {
     
     static let nextEventsInterval: Double = +30*24*3600*4
     static let previousEventsInterval: Double = -30*24*3600*4
+    private let eventStore = EKEventStore()
     
-    let eventStore = EKEventStore()
     var limitToCalendars: [Calendar] = []
+    var events: [Event] = []
+    var userSettings: UserSettings
+    
+    init(userSettings: UserSettings) {
+        self.userSettings = userSettings
+        setupNotifications()
+        fetchEvents()
+    }
+    
+    private func setupNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.fetchEvents),
+                                               name: .EKEventStoreChanged,
+                                               object: eventStore)
+    }
     
     private func isAccessAuthorized() -> Bool  {
         var result: Bool = false
@@ -45,9 +55,9 @@ struct EventKitService: EventService {
     }
     
     private func eventIncognitoTitle(event: EKEvent) -> String {
-        return (event.availability.rawValue == 0) ?
-                EventAvailabilityStrings.busy.rawValue :
-                EventAvailabilityStrings.available.rawValue
+        return (event.availability.rawValue == 0) ?            
+            userSettings.defaultEventStatus[DefaultEventAvailabilityStrings.busy.rawValue] as! String :
+            userSettings.defaultEventStatus[DefaultEventAvailabilityStrings.available.rawValue] as! String
     }
     
     private func eventAvailability(event: EKEvent) -> EventAvailability {
@@ -79,7 +89,7 @@ struct EventKitService: EventService {
                 let e = Event(title: title,
                               startDate: event.startDate,
                               endDate: event.endDate,
-                              type: ((event.location) != nil) ? .meeting : (event.url != nil) ? .call : .other,
+                              type: .other,
                               displayTitle: displayTitles,
                               availalibility: eventAvailability(event: event))
                 nextEvents.append(e)
@@ -88,9 +98,9 @@ struct EventKitService: EventService {
         return nextEvents.filter({ $0.endDate > Date() })
     }
         
-    internal func getEvents() -> [Event] {
+    @objc private func fetchEvents() {        
         if(!isAccessAuthorized()) {
-            return []
+            self.events = []
         }
         var events: [Event] = []
         for calendar in availableCalendars() {
@@ -99,17 +109,16 @@ struct EventKitService: EventService {
                 events.append(contentsOf: nextEventsForCalendar(calendar: calendar, displayTitles: calendarSettings?.displayTitles ?? false))
             }
         }
-        print(events.sorted(by: { $0.startDate < $1.startDate }))
-        return events.sorted(by: { $0.startDate < $1.startDate })
+        self.events = events.sorted(by: { $0.startDate < $1.startDate })
     }
     
     
     func getCurrentEvent() -> Event? {
-        guard let event = getEvents().first else {
+        guard let event = events.first else {
             return nil
         }
         let now = Date()
-        if(event.startDate < now && event.endDate >= now) {
+        if(event.startDate < now && event.endDate > now) {
             return event
         }
         return nil

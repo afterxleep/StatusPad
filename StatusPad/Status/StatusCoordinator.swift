@@ -25,8 +25,9 @@ class StatusCoordinator: Coordinator {
     }
     
     internal func start() {
-        presenter = StatusPresenter(eventService: EventKitService(),
-                                    userSettings: UserSettingsDefaults())
+        let userSettings = UserSettingsDefaults()
+        presenter = StatusPresenter(eventService: EventKitService(userSettings: userSettings),
+                                    userSettings: userSettings)
         let vc = StatusViewController.instatiate(fromStoryboard: storyBoard)
         vc.presenter = presenter
         vc.delegate = self

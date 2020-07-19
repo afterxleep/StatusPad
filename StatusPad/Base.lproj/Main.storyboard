@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -77,25 +76,140 @@
             <point key="canvasLocation" x="204.6875" y="130.6640625"/>
         </scene>
         <!--Settings View Controller-->
-        <scene sceneID="cBw-kM-gZW">
+        <scene sceneID="Jkb-gu-dsi">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" id="XWl-Ce-M9i" customClass="SettingsViewController" customModule="StatusPad" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Wtr-tE-5nN">
+                <tableViewController storyboardIdentifier="SettingsViewController" id="7hO-iv-Qv3" customClass="SettingsViewController" customModule="StatusPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="hYz-V4-VqQ">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="hJi-5i-68a"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JSQ-6l-0w1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="Synced Calendars" footerTitle="Currently syncing &quot;StatusPad&quot; and &quot;Fastmail&quot;" id="qhG-3I-7p1">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="6xH-Lc-mwk" style="IBUITableViewCellStyleDefault" id="QAq-bS-KBS">
+                                        <rect key="frame" x="0.0" y="55.5" width="768" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QAq-bS-KBS" id="Fbt-Os-Wg4">
+                                            <rect key="frame" x="0.0" y="0.0" width="737" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Select Calendars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6xH-Lc-mwk">
+                                                    <rect key="frame" x="20" y="0.0" width="709" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Default Status Messages" footerTitle="Use these to customiza the status messages displayed for Events in Private calendars" id="7Vn-ri-Xsz">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZIc-H7-97V">
+                                        <rect key="frame" x="0.0" y="174.5" width="768" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZIc-H7-97V" id="bYJ-Oz-WWd">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSm-qJ-zLR">
+                                                    <rect key="frame" x="20" y="12" width="67.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Available" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LXp-od-W4b">
+                                                    <rect key="frame" x="97.5" y="11" width="650.5" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="LXp-od-W4b" secondAttribute="trailing" constant="20" symbolic="YES" id="2f0-jL-eLk"/>
+                                                <constraint firstItem="XSm-qJ-zLR" firstAttribute="centerY" secondItem="bYJ-Oz-WWd" secondAttribute="centerY" id="AUS-EM-6ut"/>
+                                                <constraint firstItem="LXp-od-W4b" firstAttribute="centerY" secondItem="bYJ-Oz-WWd" secondAttribute="centerY" id="VJK-VR-iwD"/>
+                                                <constraint firstItem="LXp-od-W4b" firstAttribute="leading" secondItem="XSm-qJ-zLR" secondAttribute="trailing" constant="10" id="X4J-nY-1zo"/>
+                                                <constraint firstItem="XSm-qJ-zLR" firstAttribute="leading" secondItem="bYJ-Oz-WWd" secondAttribute="leading" constant="20" id="mHS-Vs-HsP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="j4S-F4-a2C">
+                                        <rect key="frame" x="0.0" y="218" width="768" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j4S-F4-a2C" id="htY-ir-AdE">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Busy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CjP-ti-2JH">
+                                                    <rect key="frame" x="20" y="11.5" width="37.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Busy" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0XP-YO-Ns0">
+                                                    <rect key="frame" x="67.5" y="11" width="680.5" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="0XP-YO-Ns0" secondAttribute="trailing" constant="20" symbolic="YES" id="Iog-WC-mIP"/>
+                                                <constraint firstItem="0XP-YO-Ns0" firstAttribute="leading" secondItem="CjP-ti-2JH" secondAttribute="trailing" constant="10" id="Rw6-P7-gS2"/>
+                                                <constraint firstItem="0XP-YO-Ns0" firstAttribute="centerY" secondItem="htY-ir-AdE" secondAttribute="centerY" id="jmQ-Vr-Mzc"/>
+                                                <constraint firstItem="CjP-ti-2JH" firstAttribute="centerY" secondItem="htY-ir-AdE" secondAttribute="centerY" id="kLJ-Me-iz5"/>
+                                                <constraint firstItem="CjP-ti-2JH" firstAttribute="leading" secondItem="htY-ir-AdE" secondAttribute="leading" constant="20" id="x3x-K0-np4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Screen Saver" footerTitle="Dim the screen will be dimmed when there are no events in your synced calendars. " id="SPw-Y5-E8U">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="10O-uT-xxx">
+                                        <rect key="frame" x="0.0" y="337" width="768" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="10O-uT-xxx" id="Ra0-uW-qjL">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eNf-UP-nne">
+                                                    <rect key="frame" x="699" y="6" width="51" height="31.5"/>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dim screen automatically" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixe-5X-thy">
+                                                    <rect key="frame" x="20" y="11" width="384" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eNf-UP-nne" firstAttribute="leading" secondItem="ixe-5X-thy" secondAttribute="trailing" priority="750" constant="295" id="FGv-QZ-AUy"/>
+                                                <constraint firstAttribute="bottom" secondItem="ixe-5X-thy" secondAttribute="bottom" constant="11.5" id="FeP-tH-o3Q"/>
+                                                <constraint firstAttribute="bottom" secondItem="eNf-UP-nne" secondAttribute="bottom" constant="6.5" id="H30-4H-XQT"/>
+                                                <constraint firstAttribute="trailing" secondItem="eNf-UP-nne" secondAttribute="trailing" constant="20" symbolic="YES" id="UzT-mb-Fdv"/>
+                                                <constraint firstItem="eNf-UP-nne" firstAttribute="top" secondItem="Ra0-uW-qjL" secondAttribute="top" constant="6" id="lJR-Vy-nPD"/>
+                                                <constraint firstItem="ixe-5X-thy" firstAttribute="leading" secondItem="Ra0-uW-qjL" secondAttribute="leading" constant="20" symbolic="YES" id="p2O-Rw-yJR"/>
+                                                <constraint firstItem="ixe-5X-thy" firstAttribute="top" secondItem="Ra0-uW-qjL" secondAttribute="top" constant="11" id="xQu-v4-Srr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="7hO-iv-Qv3" id="SpK-jT-rOS"/>
+                            <outlet property="delegate" destination="7hO-iv-Qv3" id="Rm4-mh-4ZR"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JfJ-gJ-tEn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="969" y="141"/>
+            <point key="canvasLocation" x="204.6875" y="796.875"/>
         </scene>
     </scenes>
     <resources>
         <image name="settingsIcon" width="64" height="64"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
