@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SettingsView {
-    var presenter: SettingsPresenter! { get set }
+    var presenter: SettingsPresenter! { get }    
 }

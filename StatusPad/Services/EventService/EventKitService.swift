@@ -17,10 +17,10 @@ class EventKitService: EventService {
     
     var limitToCalendars: [Calendar] = []
     var events: [Event] = []
-    var userSettings: UserSettings
+    var eventDefaults: [String : Any]? = ["busy": "Busy", "available": "Available"]
     
-    init(userSettings: UserSettings) {
-        self.userSettings = userSettings
+    init(eventDefaults: [String : Any]) {
+        self.eventDefaults = eventDefaults
         setupNotifications()
         fetchEvents()
     }
@@ -56,8 +56,8 @@ class EventKitService: EventService {
     
     private func eventIncognitoTitle(event: EKEvent) -> String {
         return (event.availability.rawValue == 0) ?            
-            userSettings.defaultEventStatus[DefaultEventAvailabilityStrings.busy.rawValue] as! String :
-            userSettings.defaultEventStatus[DefaultEventAvailabilityStrings.available.rawValue] as! String
+            self.eventDefaults?[EventAvailability.busy.rawValue] as! String :
+            self.eventDefaults?[EventAvailability.free.rawValue] as! String
     }
     
     private func eventAvailability(event: EKEvent) -> EventAvailability {

@@ -44,18 +44,18 @@ class StatusPresenter: BasePresenter {
     
     func getDisplayData() -> StatusViewData {
         guard let event = eventService.getCurrentEvent() else {
-            return StatusViewData(title:  userSettings.defaultEventStatus[DefaultEventAvailabilityStrings.busy.rawValue] as! String, style: .free)
+            return StatusViewData(title: userSettings.defaultEventStatus[EventAvailability.free.rawValue] as! String, style: .free)
         }
         
         var title: String = event.title
         if(!event.displayTitle) {
             switch(event.type) {
                 case .call:
-                    title = userSettings.defaultEventStatus[DefaultEventAvailabilityStrings.onACall.rawValue] as! String
+                    title = userSettings.defaultEventStatus[EventAvailability.busy.rawValue] as! String
                 case .meeting:
-                    title = userSettings.defaultEventStatus[DefaultEventAvailabilityStrings.onAMeeting.rawValue] as! String
+                    title = userSettings.defaultEventStatus[EventAvailability.busy.rawValue] as! String
                 case .other:
-                    title = userSettings.defaultEventStatus[DefaultEventAvailabilityStrings.busy.rawValue] as! String
+                    title = userSettings.defaultEventStatus[EventAvailability.busy.rawValue] as! String
             }
         }
         return StatusViewData(title: title,

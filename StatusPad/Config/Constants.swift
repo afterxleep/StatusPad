@@ -9,13 +9,6 @@
 import Foundation
 import UIKit
 
-enum DefaultEventAvailabilityStrings: String {
-    case busy = "busy"
-    case available = "available"
-    case onACall = "on a call"
-    case onAMeeting = "on a meeting"
-}
-
 struct CONSTANTS {
     
     enum STORYBOARDS: String {
@@ -23,6 +16,6 @@ struct CONSTANTS {
     }
     
     struct CONFIG {
-        static let DEFAULT_BRIGHTNESS: CGFloat = 0.7
+        static let DEFAULT_BRIGHTNESS: CGFloat = 0.6
     }
 }

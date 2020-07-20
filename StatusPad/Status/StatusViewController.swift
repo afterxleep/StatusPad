@@ -40,6 +40,7 @@ class StatusViewController: UIViewController, StatusView, Storyboardeable {
     }
 
     @IBAction func didTapSettingsBtn(_ sender: Any) {
+        enableScreen()
         delegate?.didTapSettings(anchorButton: settingsBtn)
     }
     

@@ -30,6 +30,7 @@ class SettingsCoordinator: Coordinator {
     
     internal func start() {
         let vc = SettingsViewController.instatiate(fromStoryboard: storyBoard)
+        vc.presenter = SettingsPresenter(userSettings: UserSettingsDefaults())
         settingsNavigationController = UINavigationController(rootViewController: vc)
         settingsNavigationController.modalPresentationStyle = .popover
         settingsNavigationController.popoverPresentationController?.sourceView = anchorButton

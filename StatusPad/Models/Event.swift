@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum EventAvailability: Int, Codable {
-    case busy = 0
-    case free = 1
+enum EventAvailability: String, Codable {
+    case busy = "busy"
+    case free = "available"
 }
 
 enum EventType: String, Codable {

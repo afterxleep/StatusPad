@@ -16,7 +16,7 @@ final class UserSettingsDefaults: UserSettings {
         let c1 = Calendar(title: "StatusPad", displayTitles: true)
         let c2 = Calendar(title: "FastMail", displayTitles: false)
         self.activeCalendars = [c1, c2]        
-        self.dimScreenWhenInactive = false
+        self.dimScreenWhenInactive = true
     }
     
     private func sync() {
@@ -59,8 +59,8 @@ final class UserSettingsDefaults: UserSettings {
     var defaultEventStatus: [String : Any] {
         get { UserDefaults.standard.dictionary(forKey: USER_SETTINGS.DEFAULT_EVENT_STATUS.rawValue) ??
             [
-                DefaultEventAvailabilityStrings.busy.rawValue : DefaultEventAvailabilityStrings.busy.rawValue.capitalized,
-                DefaultEventAvailabilityStrings.available.rawValue : DefaultEventAvailabilityStrings.available.rawValue.capitalized
+                EventAvailability.busy.rawValue : EventAvailability.busy.rawValue.capitalized,
+                EventAvailability.free.rawValue : EventAvailability.free.rawValue.capitalized
             ]
             
         }

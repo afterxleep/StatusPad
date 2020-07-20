@@ -165,7 +165,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Screen Saver" footerTitle="Dim the screen will be dimmed when there are no events in your synced calendars. " id="SPw-Y5-E8U">
+                            <tableViewSection headerTitle="Screen Saver" footerTitle="The screen will be dimmed when there is not a current event in your synced calendars. " id="SPw-Y5-E8U">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="10O-uT-xxx">
                                         <rect key="frame" x="0.0" y="337" width="768" height="43.5"/>
@@ -203,6 +203,12 @@
                             <outlet property="delegate" destination="7hO-iv-Qv3" id="Rm4-mh-4ZR"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="availableTxt" destination="LXp-od-W4b" id="uoS-Ez-Tir"/>
+                        <outlet property="busyTxt" destination="0XP-YO-Ns0" id="eGo-5y-Ry5"/>
+                        <outlet property="calendarSelectCell" destination="QAq-bS-KBS" id="grI-Jg-gr1"/>
+                        <outlet property="dimSwitch" destination="eNf-UP-nne" id="nw3-Ol-CMK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JfJ-gJ-tEn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
