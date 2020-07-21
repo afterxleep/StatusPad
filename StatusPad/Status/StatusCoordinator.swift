@@ -9,15 +9,16 @@
 import Foundation
 import UIKit
 
-protocol StatusCoordinatorDelegate: class {}
+protocol StatusCoordinatorProtocol: CoordinatorProtocol {
+    func settingsFrom(anchorButton: UIButton)
+}
 
-class StatusCoordinator: Coordinator {
+class StatusCoordinator: StatusCoordinatorProtocol {
     
     internal let storyBoard = CONSTANTS.STORYBOARDS.STATUS_STORYBOARD.rawValue
     internal var navigationController: UINavigationController
-    internal var childCoordinators: [Coordinator]
+    internal var childCoordinators: [CoordinatorProtocol]
     internal var presenter: StatusPresenter?
-    var delegate: StatusCoordinatorDelegate?
     
     init(with navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -25,12 +26,12 @@ class StatusCoordinator: Coordinator {
     }
     
     internal func start() {
-        let userSettings = UserSettingsDefaults()        
-        presenter = StatusPresenter(eventService: EventKitService(eventDefaults: UserSettingsDefaults().defaultEventStatus),
-                                    userSettings: userSettings)
+        let userSettings: UserSettingsProtocol = UserSettingsDefaults()
+        let eventService: EventServiceProtocol = EventServiceEventKit(eventDefaults: userSettings.defaultEventStatus)
         let vc = StatusViewController.instatiate(fromStoryboard: storyBoard)
-        vc.presenter = presenter
-        vc.delegate = self
+        vc.presenter = StatusPresenter(eventService: eventService,
+                                       userSettings: userSettings,
+                                       coordinator: self)
         navigationController.pushViewController(vc, animated: false)
     }
     
@@ -38,14 +39,5 @@ class StatusCoordinator: Coordinator {
         let settingsCoordinator = SettingsCoordinator(with: navigationController, anchorButton: anchorButton)
         addChild(coordinator: settingsCoordinator)        
         settingsCoordinator.start()
-    }
-    
-    
-}
-
-extension StatusCoordinator: StatusViewControllerDelegate {
-    
-    func didTapSettings(anchorButton: UIButton) {
-        settingsFrom(anchorButton: anchorButton)
     }
 }

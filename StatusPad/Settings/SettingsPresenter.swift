@@ -9,14 +9,17 @@
 import Foundation
 import UIKit
 
-class SettingsPresenter: BasePresenter {
+class SettingsPresenter: BasePresenterProtocol {
     
-    typealias View = SettingsView
+    typealias View = SettingsView    
+    var coordinator: SettingsCoordinatorProtocol
+    var userSettings: UserSettingsProtocol
+    
     private var settingsView: SettingsView?
-    var userSettings: UserSettings
     
-    init(userSettings: UserSettings) {
+    init(userSettings: UserSettingsProtocol, coordinator: SettingsCoordinatorProtocol) {
         self.userSettings = userSettings
+        self.coordinator = coordinator
     }
     
     internal func attachView(view: SettingsView) {

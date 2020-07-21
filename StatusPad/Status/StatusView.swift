@@ -9,5 +9,7 @@
 import Foundation
 
 protocol StatusView {
-    var presenter: StatusPresenter! { get set }
+    var presenter: StatusPresenter? { get set }    
+    func didTapSettings()
+    func presentData(data: StatusViewData)
 }

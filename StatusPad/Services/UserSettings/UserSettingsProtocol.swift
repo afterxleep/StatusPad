@@ -14,7 +14,7 @@ enum USER_SETTINGS: String {
     case DEFAULT_EVENT_STATUS
 }
 
-protocol UserSettings {
+protocol UserSettingsProtocol {
     var hasLaunchedApp: Bool { get set }
     var activeCalendars: [Calendar] { get set }
     var dimScreenWhenInactive: Bool { get set }

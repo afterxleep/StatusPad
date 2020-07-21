@@ -10,7 +10,7 @@ import Foundation
 
 
 
-final class UserSettingsDefaults: UserSettings {
+final class UserSettingsDefaults: UserSettingsProtocol {
     
     init() {
         let c1 = Calendar(title: "StatusPad", displayTitles: true)

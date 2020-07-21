@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol EventService {
+protocol EventServiceProtocol {
     
     var limitToCalendars: [Calendar] { get set }
     var events: [Event] { get }

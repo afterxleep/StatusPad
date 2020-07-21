@@ -9,22 +9,22 @@
 import Foundation
 import UIKit
 
-protocol Coordinator: class {
+protocol CoordinatorProtocol: class {
     
     var navigationController: UINavigationController { get }
-    var childCoordinators: [Coordinator] { get set }
+    var childCoordinators: [CoordinatorProtocol] { get set }
     func start()
-    func addChild(coordinator: Coordinator)
-    func removeChild(coordinator: Coordinator)
+    func addChild(coordinator: CoordinatorProtocol)
+    func removeChild(coordinator: CoordinatorProtocol)
 }
 
-extension Coordinator {
+extension CoordinatorProtocol {
     
-    func addChild(coordinator: Coordinator) {
+    func addChild(coordinator: CoordinatorProtocol) {
         childCoordinators.append(coordinator)
     }
     
-    func removeChild(coordinator: Coordinator) {
+    func removeChild(coordinator: CoordinatorProtocol) {
         childCoordinators = childCoordinators.filter { $0 !== coordinator }
     }
     

@@ -9,22 +9,30 @@
 import Foundation
 import UIKit
 
-class StatusPresenter: BasePresenter {
-    
-    typealias View = StatusView
+
+class StatusPresenter: StatusPresenter {
+    private var eventService: EventServiceProtocol
+    private var userSettings: UserSettingsProtocol
+    var coordinator: StatusCoordinatorProtocol?
     private var statusView: StatusView?
+    typealias View<T: StatusView> = StatusView
     private static let timerInterval = 60.0
-    private var eventService: EventService
-    private var userSettings: UserSettings
     private var timer: Timer?
     private var events: [Event] = []
             
     var displayEvents: (current: Event?, next: Event?)
+    var shouldDimScreen: Bool { get { return userSettings.dimScreenWhenInactive } }
+    var isPresentingSettings: Bool = false
     
-    var shouldDimScreen: Bool {
-        get { return userSettings.dimScreenWhenInactive }
+    init(eventService: EventServiceProtocol, userSettings: UserSettingsProtocol, coordinator: StatusCoordinator) {
+        self.userSettings = userSettings
+        self.eventService = eventService
+        self.coordinator = coordinator
+        self.eventService.limitToCalendars = userSettings.activeCalendars
+        self.userSettings.hasLaunchedApp = true
     }
-    
+        
+    // MARK: BasePresenterProtocol
     internal func attachView(view: StatusView) {
         statusView = view
     }
@@ -34,13 +42,6 @@ class StatusPresenter: BasePresenter {
     }
     
     internal func destroy() {}
-
-    init(eventService: EventService, userSettings: UserSettings) {
-        self.userSettings = userSettings
-        self.eventService = eventService
-        self.eventService.limitToCalendars = userSettings.activeCalendars
-        self.userSettings.hasLaunchedApp = true
-    }
     
     func getDisplayData() -> StatusViewData {
         guard let event = eventService.getCurrentEvent() else {
@@ -61,4 +62,5 @@ class StatusPresenter: BasePresenter {
         return StatusViewData(title: title,
                               style: (event.availalibility == .free) ? .free : .busy)
     }
+    
 }

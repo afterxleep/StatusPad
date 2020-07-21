@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class AppCoordinator: Coordinator {
+class AppCoordinator: CoordinatorProtocol {
     
     private var window: UIWindow
     internal var navigationController: UINavigationController
-    internal var childCoordinators: [Coordinator]
+    internal var childCoordinators: [CoordinatorProtocol]
         
     var rootViewController: UIViewController {
         return navigationController
@@ -28,7 +28,7 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let userSettings: UserSettings = UserSettingsDefaults()
+        let userSettings: UserSettingsProtocol = UserSettingsDefaults()
         if(userSettings.hasLaunchedApp) {
             status()
         }
@@ -36,7 +36,6 @@ class AppCoordinator: Coordinator {
     
     func status() {
         let statusCoordinator = StatusCoordinator(with: navigationController)
-        statusCoordinator.delegate = self
         addChild(coordinator: statusCoordinator)
         statusCoordinator.start()
     }
@@ -45,7 +44,3 @@ class AppCoordinator: Coordinator {
         
     }
 }
-
-extension AppCoordinator: StatusCoordinatorDelegate {}
-
-

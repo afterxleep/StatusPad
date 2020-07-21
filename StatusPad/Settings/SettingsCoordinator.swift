@@ -9,16 +9,17 @@
 import Foundation
 import UIKit
 
-protocol SettingsCoordinatorDelegate: class {}
+protocol SettingsCoordinatorProtocol: CoordinatorProtocol {
+    
+}
 
-class SettingsCoordinator: Coordinator {
+class SettingsCoordinator: SettingsCoordinatorProtocol {
     
     internal let storyBoard = CONSTANTS.STORYBOARDS.STATUS_STORYBOARD.rawValue
     internal var navigationController: UINavigationController
-    internal var childCoordinators: [Coordinator]
+    internal var childCoordinators: [CoordinatorProtocol]
     internal var presenter: SettingsPresenter?
     internal var settingsNavigationController: UINavigationController
-    weak var delegate: SettingsCoordinatorDelegate?
     var anchorButton: UIButton
     
     init(with navigationController: UINavigationController, anchorButton: UIButton) {
@@ -29,8 +30,9 @@ class SettingsCoordinator: Coordinator {
     }
     
     internal func start() {
+        let userSettings: UserSettingsProtocol = UserSettingsDefaults()
         let vc = SettingsViewController.instatiate(fromStoryboard: storyBoard)
-        vc.presenter = SettingsPresenter(userSettings: UserSettingsDefaults())
+        vc.presenter = SettingsPresenter(userSettings: userSettings, coordinator: self)
         settingsNavigationController = UINavigationController(rootViewController: vc)
         settingsNavigationController.modalPresentationStyle = .popover
         settingsNavigationController.popoverPresentationController?.sourceView = anchorButton

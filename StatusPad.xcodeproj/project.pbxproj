@@ -19,19 +19,19 @@
 		D60671CE24BE660000FF22DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D60671CC24BE660000FF22DE /* LaunchScreen.storyboard */; };
 		D60671D924BE660000FF22DE /* StabletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60671D824BE660000FF22DE /* StabletTests.swift */; };
 		D60671E424BE660000FF22DE /* StabletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60671E324BE660000FF22DE /* StabletUITests.swift */; };
-		D60671F224BE686300FF22DE /* EventKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60671F124BE686300FF22DE /* EventKitService.swift */; };
+		D60671F224BE686300FF22DE /* EventServiceEventKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60671F124BE686300FF22DE /* EventServiceEventKit.swift */; };
 		D60671F924BE6AE000FF22DE /* StatusPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60671F824BE6AE000FF22DE /* StatusPresenter.swift */; };
-		D60671FB24BE6B2900FF22DE /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60671FA24BE6B2900FF22DE /* EventService.swift */; };
+		D60671FB24BE6B2900FF22DE /* EventServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60671FA24BE6B2900FF22DE /* EventServiceProtocol.swift */; };
 		D60671FE24BE6BC200FF22DE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60671FD24BE6BC200FF22DE /* Event.swift */; };
-		D606720124BF4DAC00FF22DE /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D606720024BF4DAC00FF22DE /* BasePresenter.swift */; };
+		D606720124BF4DAC00FF22DE /* BasePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D606720024BF4DAC00FF22DE /* BasePresenterProtocol.swift */; };
 		D606720324BF4E0100FF22DE /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D606720224BF4E0100FF22DE /* StatusView.swift */; };
-		D6585A0924C10718004D7B99 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6585A0824C10718004D7B99 /* Coordinator.swift */; };
+		D6585A0924C10718004D7B99 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6585A0824C10718004D7B99 /* CoordinatorProtocol.swift */; };
 		D6585A0D24C108BB004D7B99 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6585A0C24C108BB004D7B99 /* AppCoordinator.swift */; };
 		D6585A1124C10BEC004D7B99 /* StoryBoardeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6585A1024C10BEC004D7B99 /* StoryBoardeable.swift */; };
 		D6585A1324C10C65004D7B99 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6585A1224C10C65004D7B99 /* Constants.swift */; };
 		D6AB657124C119A50087C58C /* StatusViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AB657024C119A50087C58C /* StatusViewData.swift */; };
 		D6DBB4B724BF8C790061DB36 /* UserSettingsDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB4B524BF8C790061DB36 /* UserSettingsDefaults.swift */; };
-		D6DBB4B824BF8C790061DB36 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB4B624BF8C790061DB36 /* UserSettings.swift */; };
+		D6DBB4B824BF8C790061DB36 /* UserSettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB4B624BF8C790061DB36 /* UserSettingsProtocol.swift */; };
 		D6DBB4BA24BF8CA60061DB36 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB4B924BF8CA60061DB36 /* Calendar.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,19 +71,19 @@
 		D60671DF24BE660000FF22DE /* StatusPadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StatusPadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60671E324BE660000FF22DE /* StabletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StabletUITests.swift; sourceTree = "<group>"; };
 		D60671E524BE660000FF22DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D60671F124BE686300FF22DE /* EventKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitService.swift; sourceTree = "<group>"; };
+		D60671F124BE686300FF22DE /* EventServiceEventKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventServiceEventKit.swift; sourceTree = "<group>"; };
 		D60671F824BE6AE000FF22DE /* StatusPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPresenter.swift; sourceTree = "<group>"; };
-		D60671FA24BE6B2900FF22DE /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
+		D60671FA24BE6B2900FF22DE /* EventServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventServiceProtocol.swift; sourceTree = "<group>"; };
 		D60671FD24BE6BC200FF22DE /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		D606720024BF4DAC00FF22DE /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
+		D606720024BF4DAC00FF22DE /* BasePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenterProtocol.swift; sourceTree = "<group>"; };
 		D606720224BF4E0100FF22DE /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
-		D6585A0824C10718004D7B99 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D6585A0824C10718004D7B99 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		D6585A0C24C108BB004D7B99 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D6585A1024C10BEC004D7B99 /* StoryBoardeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardeable.swift; sourceTree = "<group>"; };
 		D6585A1224C10C65004D7B99 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D6AB657024C119A50087C58C /* StatusViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewData.swift; sourceTree = "<group>"; };
 		D6DBB4B524BF8C790061DB36 /* UserSettingsDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsDefaults.swift; sourceTree = "<group>"; };
-		D6DBB4B624BF8C790061DB36 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		D6DBB4B624BF8C790061DB36 /* UserSettingsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsProtocol.swift; sourceTree = "<group>"; };
 		D6DBB4B924BF8CA60061DB36 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,8 +200,8 @@
 		D60671F424BE6A3F00FF22DE /* EventService */ = {
 			isa = PBXGroup;
 			children = (
-				D60671FA24BE6B2900FF22DE /* EventService.swift */,
-				D60671F124BE686300FF22DE /* EventKitService.swift */,
+				D60671FA24BE6B2900FF22DE /* EventServiceProtocol.swift */,
+				D60671F124BE686300FF22DE /* EventServiceEventKit.swift */,
 			);
 			path = EventService;
 			sourceTree = "<group>";
@@ -239,8 +239,8 @@
 		D6585A0A24C10898004D7B99 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				D6585A0824C10718004D7B99 /* Coordinator.swift */,
-				D606720024BF4DAC00FF22DE /* BasePresenter.swift */,
+				D6585A0824C10718004D7B99 /* CoordinatorProtocol.swift */,
+				D606720024BF4DAC00FF22DE /* BasePresenterProtocol.swift */,
 				D6585A1024C10BEC004D7B99 /* StoryBoardeable.swift */,
 			);
 			path = Protocols;
@@ -256,7 +256,7 @@
 		D6DBB4B424BF8C660061DB36 /* UserSettings */ = {
 			isa = PBXGroup;
 			children = (
-				D6DBB4B624BF8C790061DB36 /* UserSettings.swift */,
+				D6DBB4B624BF8C790061DB36 /* UserSettingsProtocol.swift */,
 				D6DBB4B524BF8C790061DB36 /* UserSettingsDefaults.swift */,
 			);
 			path = UserSettings;
@@ -407,18 +407,18 @@
 				D60671F924BE6AE000FF22DE /* StatusPresenter.swift in Sources */,
 				D6000F9324C4B9C700F8A28B /* SettingsCoordinator.swift in Sources */,
 				D6585A1124C10BEC004D7B99 /* StoryBoardeable.swift in Sources */,
-				D6585A0924C10718004D7B99 /* Coordinator.swift in Sources */,
+				D6585A0924C10718004D7B99 /* CoordinatorProtocol.swift in Sources */,
 				D6000F8F24C4B36C00F8A28B /* SettingsView.swift in Sources */,
 				D60671C624BE65FE00FF22DE /* StatusViewController.swift in Sources */,
 				D606720324BF4E0100FF22DE /* StatusView.swift in Sources */,
-				D6DBB4B824BF8C790061DB36 /* UserSettings.swift in Sources */,
+				D6DBB4B824BF8C790061DB36 /* UserSettingsProtocol.swift in Sources */,
 				D6000F8D24C4B36300F8A28B /* SettingsPresenter.swift in Sources */,
 				D6585A0D24C108BB004D7B99 /* AppCoordinator.swift in Sources */,
-				D60671F224BE686300FF22DE /* EventKitService.swift in Sources */,
+				D60671F224BE686300FF22DE /* EventServiceEventKit.swift in Sources */,
 				D6AB657124C119A50087C58C /* StatusViewData.swift in Sources */,
-				D60671FB24BE6B2900FF22DE /* EventService.swift in Sources */,
+				D60671FB24BE6B2900FF22DE /* EventServiceProtocol.swift in Sources */,
 				D60671FE24BE6BC200FF22DE /* Event.swift in Sources */,
-				D606720124BF4DAC00FF22DE /* BasePresenter.swift in Sources */,
+				D606720124BF4DAC00FF22DE /* BasePresenterProtocol.swift in Sources */,
 				D6DBB4B724BF8C790061DB36 /* UserSettingsDefaults.swift in Sources */,
 				D60671C224BE65FE00FF22DE /* AppDelegate.swift in Sources */,
 				D6000F8B24C4B34F00F8A28B /* SettingsViewController.swift in Sources */,

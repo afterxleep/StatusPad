@@ -8,17 +8,12 @@
 
 import UIKit
 
-protocol StatusViewControllerDelegate: class {
-    func didTapSettings(anchorButton: UIButton)
-}
-
-class StatusViewController: UIViewController, StatusView, Storyboardeable {
+class StatusViewController: UIViewController, Storyboardeable {
     
-    var presenter: StatusPresenter!
+    var presenter: StatusPresenter?
     private static let timerInterval = 60.0
     private var dataTimer: Timer?
     private var screenTimer: Timer?
-    var delegate: StatusViewControllerDelegate?
     
     @IBOutlet weak var statusLbl: UILabel!    
     @IBOutlet weak var settingsBtn: UIButton!
@@ -27,30 +22,32 @@ class StatusViewController: UIViewController, StatusView, Storyboardeable {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIScreen.main.wantsSoftwareDimming = true
-        presenter.attachView(view: self)
+        presenter?.attachView(view: self)
         setupUI()
         disableSleepTimer()
         displayData()
         setDataTimer()
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     //MARK: IBActions
     @IBAction func didTapScreen(_ sender: Any) {
+        presenter?.isPresentingSettings = false
         enableScreen()
     }
 
     @IBAction func didTapSettingsBtn(_ sender: Any) {
-        enableScreen()
-        delegate?.didTapSettings(anchorButton: settingsBtn)
+        presenter?.isPresentingSettings = true
     }
     
-    private func setupUI() {
+    
+    // MARK: Internal Methods
+    internal func setupUI() {
         navigationController?.setNavigationBarHidden(true, animated: true)
         statusLbl.numberOfLines = 8
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
 
     private func setDataTimer() {
@@ -61,14 +58,37 @@ class StatusViewController: UIViewController, StatusView, Storyboardeable {
                                           repeats: true)
     }
     
-    func disableScreen() {
+    private func disableScreen() {
         UIScreen.main.brightness = 0.0
+        UIDevice.current.isProximityMonitoringEnabled = true
     }
     
-    func enableScreen() {
+    private func enableScreen() {
         UIScreen.main.brightness = CONSTANTS.CONFIG.DEFAULT_BRIGHTNESS
     }
-        
+    
+    @objc private func displayData() {
+        guard let data = presenter?.getDisplayData() else { return }
+        presentData(data: data)
+        if let dim = presenter?.shouldDimScreen, let isPresenting = presenter?.isPresentingSettings {
+            if (dim && data.style == .free && !isPresenting) {
+                disableScreen()
+            } else {
+                enableScreen()
+            }
+        }
+    }
+
+    private func disableSleepTimer() {
+        UIApplication.shared.isIdleTimerDisabled = true
+    }
+
+}
+
+extension StatusViewController: StatusView {
+    
+    func didTapSettings() {}
+    
     func presentData(data: StatusViewData) {
         var bgColor: UIColor
         switch(data.style) {
@@ -80,19 +100,4 @@ class StatusViewController: UIViewController, StatusView, Storyboardeable {
         statusLbl.text = data.title.uppercased()
         view.backgroundColor = bgColor
     }
-    
-    @objc private func displayData() {
-        let data = presenter.getDisplayData()
-        presentData(data: data)
-        if (presenter.shouldDimScreen && data.style == .free) {
-            disableScreen()
-        } else {
-            enableScreen()
-        }
-    }
-
-    private func disableSleepTimer() {
-        UIApplication.shared.isIdleTimerDisabled = true
-    }
 }
-

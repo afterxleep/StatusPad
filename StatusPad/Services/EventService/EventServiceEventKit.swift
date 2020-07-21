@@ -9,7 +9,7 @@
 import Foundation
 import EventKit
 
-class EventKitService: EventService {
+class EventServiceEventKit: EventServiceProtocol {
     
     static let nextEventsInterval: Double = +30*24*3600*4
     static let previousEventsInterval: Double = -30*24*3600*4
